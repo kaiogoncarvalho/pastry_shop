@@ -16,3 +16,28 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => 'v1/clients'], function () use ($router){
+    $router->get('/', 'ClientsController@getAll');
+    $router->post('/', 'ClientsController@create');
+    $router->patch('/{id}', 'ClientsController@update');
+    $router->get('/{id}', 'ClientsController@get');
+    $router->delete('/{id}', 'ClientsController@delete');
+});
+
+$router->group(['prefix' => 'v1/pastries'], function () use ($router){
+    $router->get('/', 'PastriesController@getAll');
+    $router->post('/', 'PastriesController@create');
+    $router->patch('/{id}', 'PastriesController@update');
+    $router->get('/{id}', 'PastriesController@get');
+    $router->delete('/{id}', 'PastriesController@delete');
+});
+
+$router->group(['prefix' => 'v1/orders'], function () use ($router){
+    $router->get('/', 'OrdersController@getAll');
+    $router->post('/', 'OrdersController@create');
+    $router->patch('/{id}', 'OrdersController@update');
+    $router->get('/{id}', 'OrdersController@get');
+    $router->delete('/{id}', 'OrdersController@delete');
+});
+

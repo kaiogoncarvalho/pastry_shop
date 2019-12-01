@@ -16,6 +16,7 @@ class OrdersTable extends Migration
         Schema::create('orders', function(Blueprint $table){
            $table->integer('client_id')->unsigned();
            $table->integer('pastry_id')->unsigned();
+           $table->primary(['client_id', 'pastry_id']);
            $table->timestamps();
            $table->softDeletes();
         });

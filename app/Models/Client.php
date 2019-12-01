@@ -9,7 +9,7 @@ class Client extends Model
 {
     use SoftDeletes;
 
-    public $fillable = [
+    protected $fillable = [
         'id',
         'name',
         'email',
@@ -23,10 +23,15 @@ class Client extends Model
         'updated_at'
     ];
 
-    public $dates = [
+    protected $dates = [
         'birthdate',
         'created_at',
         'updated_at'
+    ];
+
+    protected $hidden = [
+        'id',
+        'deleted_at'
     ];
 
 

@@ -15,15 +15,15 @@ class ClientsTable extends Migration
     public function up()
     {
         Schema::create('clients', function (Blueprint $table){
-            $table->increments('id')->primary();
+            $table->increments('id');
             $table->string('name', 100);
             $table->string('email', 150)->unique();
             $table->string('phone', 15);
             $table->date('birthdate');
             $table->string('address', 255);
-            $table->string('complement', 100);
+            $table->string('complement', 100)->nullable();
             $table->string('neighborhood', 255);
-            $table->integer('postcode');
+            $table->string('postcode', 8);
             $table->timestamps();
             $table->softDeletes();
         });
