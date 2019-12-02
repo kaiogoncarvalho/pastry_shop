@@ -9,7 +9,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\Rule;
 use Laravel\Lumen\Routing\Controller;
 
-class ClientsController extends Controller implements CrudController
+class ClientsController extends Controller
 {
     /**
      * @param Request $request

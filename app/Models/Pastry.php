@@ -9,9 +9,23 @@ class Pastry extends Model
 {
     use SoftDeletes;
 
-    public $fillable = [
+    protected $fillable = [
         'id',
         'name',
+        'price',
         'photo',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
+
+    protected $hidden = [
+        'deleted_at',
+        'pivot'
+    ];
+
+    protected $dates = [
+        'created_at',
+        'updated_at'
     ];
 }

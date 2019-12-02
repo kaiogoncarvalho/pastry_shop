@@ -10,12 +10,13 @@
 | database. Just tell the factory how a default model should look.
 |
 */
-/**
- *
- */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+
+
+$factory->define(\App\Models\Pastry::class, function (Faker\Generator $faker) {
+    $nameImage = $faker->word().".jpg";
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
+        'name'  => $faker->name,
+        'price' => $faker->randomFloat(2, 1, 999999),
+        'photo' => $nameImage
     ];
 });

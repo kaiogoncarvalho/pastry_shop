@@ -27,14 +27,17 @@ $router->group(['prefix' => 'v1/clients'], function () use ($router){
 
 $router->group(['prefix' => 'v1/pastries'], function () use ($router){
     $router->get('/', 'PastriesController@getAll');
+    $router->post('/{id}', 'PastriesController@update');
     $router->post('/', 'PastriesController@create');
-    $router->patch('/{id}', 'PastriesController@update');
+    $router->get('/{id}/photo', 'PastriesController@getPhoto');
     $router->get('/{id}', 'PastriesController@get');
     $router->delete('/{id}', 'PastriesController@delete');
+
 });
 
 $router->group(['prefix' => 'v1/orders'], function () use ($router){
     $router->get('/', 'OrdersController@getAll');
+    $router->post('/{id}/email', 'OrdersController@sendEmail');
     $router->post('/', 'OrdersController@create');
     $router->patch('/{id}', 'OrdersController@update');
     $router->get('/{id}', 'OrdersController@get');

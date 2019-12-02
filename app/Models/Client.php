@@ -30,9 +30,11 @@ class Client extends Model
     ];
 
     protected $hidden = [
-        'id',
         'deleted_at'
     ];
 
+    protected $casts = [
+        'birthdate' => 'date:Y-m-d',
+    ];
 
 }

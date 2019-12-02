@@ -5,6 +5,7 @@ namespace App\Services;
 
 use App\Models\Client;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ClientsService
@@ -12,6 +13,16 @@ use Illuminate\Support\Facades\DB;
  */
 class ClientsService
 {
+    /**
+     * @var Client
+     */
+    private $client;
+
+    public function __construct(Client $client)
+    {
+        $this->client = $client;
+    }
+
     /**
      * @param array $fields
      * @return Client
@@ -71,8 +82,7 @@ class ClientsService
 
     public function getAll(?array $filters)
     {
-        $client = new Client;
-        $table = $client->getTable();
+        $table = $this->client->getTable();
         $clients = DB::table($table);
 
         if(array_key_exists('name', $filters)){
@@ -98,8 +108,8 @@ class ClientsService
 
         $clients->orderBy($filters['order'] ?? 'created_at');
 
-        $fillable = $client->getFillable();
-        $hidden = $client->getHidden();
+        $fillable = $this->client->getFillable();
+        $hidden = $this->client->getHidden();
 
         return $clients->paginate(
             $filters['perPage'] ?? 10,
@@ -126,7 +136,7 @@ class ClientsService
      * @param int $id
      * @throws \Exception
      */
-    public function get(int $id): Client
+    public function get(int $id): Model
     {
         /**
          * @var Client $client

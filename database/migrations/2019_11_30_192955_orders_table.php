@@ -13,12 +13,12 @@ class OrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function(Blueprint $table){
-           $table->integer('client_id')->unsigned();
-           $table->integer('pastry_id')->unsigned();
-           $table->primary(['client_id', 'pastry_id']);
-           $table->timestamps();
-           $table->softDeletes();
+        Schema::create('orders', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('client_id')->unsigned();
+            $table->foreign('client_id')->references('id')->on('clients');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

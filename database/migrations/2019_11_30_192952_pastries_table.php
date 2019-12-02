@@ -13,12 +13,13 @@ class PastriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pastries', function(Blueprint $table){
-           $table->increments('id');
-           $table->string('name', 100);
-           $table->double('price', 10, 2);
-           $table->string('photo', 255);
-           $table->softDeletes();
+        Schema::create('pastries', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 100);
+            $table->double('price', 10, 2);
+            $table->string('photo', 150);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
