@@ -16,7 +16,7 @@ $factory->define(\App\Models\Pastry::class, function (Faker\Generator $faker) {
     $nameImage = $faker->word().".jpg";
     return [
         'name'  => $faker->name,
-        'price' => $faker->randomFloat(2, 1, 999999),
+        'price' => $faker->regexify('\d{1,8}\.\d{0,2}'),
         'photo' => $nameImage
     ];
 });

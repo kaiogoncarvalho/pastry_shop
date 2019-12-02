@@ -1,21 +1,26 @@
-# Lumen PHP Framework
+# Pastelaria
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+## Como Instalar
+* Na pasta principal
+    * Rodar os comandos:
+        * docker-compose build
+        * docker-compose up -d
+        * docker exec php composer install
+        * docker-compose exec php php artisan migrate
+            * Pode ser que de erro nesse passo, mas é devido estar subindo o banco de dados, aguardar e tentar novamente 
+        * docker-compose exec php composer dump-autoload
+        * sudo chmod 777 -R storage
+        * docker-compose exec php php artisan db:seed
+    * Configurar o arquivo .env
+        * Copiar o arquivo .env.example para .env
+        * Configurar informações de e-mail válidas
+ 
+## Como rodar os testes     
+* Na pasta principal
+    * Rodar o comando:   
+        * docker-compose exec php ./vendor/bin/phpunit -d memory_limit=-1 --testdox
+            * Os testes irão limpar o banco de dados, então será necessário fazer o seed de dados novamente
+        
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
 
-## Official Documentation
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

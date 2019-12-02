@@ -200,14 +200,14 @@ class OrdersTest extends TestCase
      */
     public function testDelete()
     {
-        $client = factory('App\Models\Order')->create();
+        $order = factory('App\Models\Order')->create();
         $this->json(
             'DELETE',
-            '/v1/clients/'.$client->id
+            '/v1/orders/'.$order->id
         )->seeStatusCode(Response::HTTP_NO_CONTENT)
             ->notSeeInDatabase(
-                'clients',
-                ['id' => $client->id, 'deleted_at' => null]
+                'orders',
+                ['id' => $order->id, 'deleted_at' => null]
             );
     }
 }

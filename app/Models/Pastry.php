@@ -28,4 +28,9 @@ class Pastry extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function getPriceAttribute($value)
+    {
+        return number_format($this->attributes['price'], 2, '.', '');
+    }
 }

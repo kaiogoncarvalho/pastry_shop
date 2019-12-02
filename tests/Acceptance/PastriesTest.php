@@ -26,8 +26,10 @@ class PastriesTest extends TestCase
             ['photo' => UploadedFile::fake()->image($body['photo'])]
         )->send();
 
+
+
         $statusCode = $this->response->getStatusCode();
-        $this->assertEquals($statusCode, Response::HTTP_CREATED, $this->response->getContent());
+        $this->assertEquals($statusCode, Response::HTTP_CREATED);
 
         $response = json_decode($this->response->getContent(), true);
         $this->assertEquals($response['name'], $body->name);

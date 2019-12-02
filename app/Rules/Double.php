@@ -23,7 +23,7 @@ class Double implements Rule
     public function passes($attribute, $value)
     {
         $length = $this->length - $this->decimals;
-        $re = '/^\d{1,'.$length.'}\.\d{1,'.$this->decimals.'}$/s';
+        $re = '/^\d{1,'.$length.'}\.\d{0,'.$this->decimals.'}$/s';
 
         return preg_match($re, $value);
     }

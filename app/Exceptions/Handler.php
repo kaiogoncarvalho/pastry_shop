@@ -62,6 +62,10 @@ class Handler extends ExceptionHandler
             return new JsonResponse($response, Response::HTTP_NOT_FOUND);
         }
 
+        if(env('APP_ENV') !== 'development'){
+            return new JsonResponse(['error' => "Internal Server Error"], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
         return parent::render($request, $exception);
     }
 }

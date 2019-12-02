@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class OrdersTable extends Migration
+class OrdersPastriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class OrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('client_id')->unsigned();
-            $table->foreign('client_id')->references('id')->on('clients');
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::create('orders_pastries', function (Blueprint $table) {
+            $table->integer('order_id')->unsigned();
+            $table->integer('pastry_id')->unsigned();
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('pastry_id')->references('id')->on('pastries');
         });
     }
 
@@ -30,7 +29,7 @@ class OrdersTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('orders_pastries');
         Schema::enableForeignKeyConstraints();
     }
 }

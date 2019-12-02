@@ -12,7 +12,6 @@ use Laravel\Lumen\Testing\DatabaseMigrations;
 abstract class TestCase extends LaravelTestCase
 {
     use DatabaseTransactions;
-    use DatabaseMigrations;
 
     /**
      * Creates the application.
