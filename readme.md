@@ -58,6 +58,7 @@ If you don't user Docker to Install use this commands in directory of project:
 ## Usage
 **IMPORTANT! All request with method POST need Content-Type: application/json in header**
 
+**In directory root exists a collection of Postman with all endpoints**
 
 Access this URL for API of endpoints ((this URL is only if you use Docker to install project):
   
