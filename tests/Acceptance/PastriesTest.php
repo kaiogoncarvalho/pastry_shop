@@ -3,10 +3,10 @@
 namespace Test\Acceptance;
 
 use Illuminate\Http\Response;
-use Test\TestCase;
+use Test\AcceptanceTestCase;
 use Illuminate\Http\UploadedFile;
 
-class PastriesTest extends TestCase
+class PastriesTest extends AcceptanceTestCase
 {
     /**
      * Test Create Pastry

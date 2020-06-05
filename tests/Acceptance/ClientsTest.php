@@ -3,9 +3,9 @@
 namespace Test\Acceptance;
 
 use Illuminate\Http\Response;
-use Test\TestCase;
+use Test\AcceptanceTestCase;
 
-class ClientsTest extends TestCase
+class ClientsTest extends AcceptanceTestCase
 {
     /**
      * Test Create Client

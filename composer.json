@@ -9,7 +9,8 @@
         "laravel/lumen-framework": "^6.0",
         "ext-json": "*",
         "league/flysystem": "1.0.57",
-        "illuminate/mail": "6.6.0"
+        "illuminate/mail": "6.6.0",
+        "ext-pdo": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.4",
@@ -34,6 +35,9 @@
     "scripts": {
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "tests": [
+            "./vendor/bin/phpunit -d memory_limit=-1 --testdox"
         ]
     },
     "config": {
